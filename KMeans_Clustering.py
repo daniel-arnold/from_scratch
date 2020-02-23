@@ -2,7 +2,7 @@
 """
 Created on Sat Feb 22 15:31:43 2020
 
-@author: daniel arnold, daniel.brian.arnold@gmail.com
+@author: daniel arnold
 """
 
 #Imports
