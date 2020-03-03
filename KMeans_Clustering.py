@@ -8,6 +8,7 @@ Created on Sat Feb 22 15:31:43 2020
 #Imports
 import numpy as np
 import numpy.linalg as LA
+from sklearn.cluster import KMeans
 from sklearn import datasets
 
 class KMeans_scratch:
@@ -36,10 +37,6 @@ class KMeans_scratch:
     
             delta = LA.norm(self.centroids[i+1] - self.centroids[i], 2)
             i += 1
-    
-        print("number of iterations:", i-1)
-        print("Cluster Centers:")
-        print(self.centroids[i-1])
         
         return self.assignments, self.centroids
     
@@ -72,8 +69,15 @@ if __name__ == "__main__":
     y = iris.target
     x = iris.data[:,2:]
     
-    #run KMeans
+    #run KMeans from scratch
     c0 = np.asarray([[1, 0], [2,2], [4,4]]) #initial centroids
     num_clusters = 3
     kmeans = KMeans_scratch(x, c0, num_clusters)
-    centroids, assignments = kmeans.fit()
+    assignments, centroids = kmeans.fit()
+    print("Cluster centers from scratch:")
+    print(centroids[len(centroids)-1])
+    
+    #Compare to sklearn kmeans
+    kmeans = KMeans(n_clusters=num_clusters, random_state=0).fit(x)
+    print("Cluster Centers (sklearn):")
+    print(kmeans.cluster_centers_)
