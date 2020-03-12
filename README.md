@@ -5,3 +5,4 @@
  
   - KMeans clustering
   - Principal Component Analysis (PCA): scratch method uses power iteration to compute singular values and eigenvectors
+  - Linear Regression: linear gregression over multiple independent variables.  Parameter estimated determined via solving the normal equation, gradient descent, and stochastic gradient descent
