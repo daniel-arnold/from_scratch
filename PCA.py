@@ -98,9 +98,13 @@ if __name__ == "__main__":
     print("norm of difference of PCA and scratch transforms:", delta)
     
     plt.plot(X_transformed_scratch[:,0],X_transformed_scratch[:,1],'bo')
-    plt.title('PCA from scratch')
+    plt.xlabel('component 1')
+    plt.ylabel('component 2')
+    plt.title('Data projected onto first two PCs (scratch)')
     plt.show()
     
     plt.plot(X_transformed_pca[:,0],X_transformed_pca[:,1],'bo')
-    plt.title('PCA from sklearn')
+    plt.xlabel('component 1')
+    plt.ylabel('component 2')
+    plt.title('Data projected onto first two PCs (sklearn)')
     plt.show()
