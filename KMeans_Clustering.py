@@ -10,6 +10,7 @@ import numpy as np
 import numpy.linalg as LA
 from sklearn.cluster import KMeans
 from sklearn import datasets
+import matplotlib.pyplot as plt
 
 class KMeans_scratch:
     
@@ -60,7 +61,33 @@ class KMeans_scratch:
             centers.append(np.mean(cluster_data, axis=0))
         return np.asarray(centers)
     
-##############################################################################    
+############################################################################## 
+def plotResults(assignments):
+    i = len(assignments)
+    idx_0 = np.asarray(np.where(iris.target == 0)).reshape(50)
+    idx_1 = np.asarray(np.where(iris.target == 1)).reshape(50)
+    idx_2 = np.asarray(np.where(iris.target == 2)).reshape(50)
+    
+    data_0 = iris.data[idx_0,:]
+    
+    data_1 = iris.data[idx_1,:]
+    
+    data_2 = iris.data[idx_2,:]
+    
+    f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+    ax1.plot(x[np.where(assignments[i-1] == 0),0], x[np.where(assignments[i-1] == 0),1],'ko')
+    ax1.plot(x[np.where(assignments[i-1] == 1),0], x[np.where(assignments[i-1] == 1),1],'r+')
+    ax1.plot(x[np.where(assignments[i-1] == 2),0], x[np.where(assignments[i-1] == 2),1],'bo')
+    ax1.set_xlabel('Petal length')
+    ax1.set_ylabel('Petal width')
+    ax1.set_title('KMeans')
+    ax2.plot(data_0[:,2],data_0[:,3],'ko',label="Versicolour")
+    ax2.plot(data_1[:,2],data_1[:,3],'r+',label="Versicolour")
+    ax2.plot(data_2[:,2],data_2[:,3],'bo',label="Virginica")
+    ax2.set_xlabel('Petal length')
+    ax2.set_ylabel('Petal width')
+    ax2.set_title('True Classification')
+    plt.show()
 
 if __name__ == "__main__":
     
@@ -74,6 +101,10 @@ if __name__ == "__main__":
     num_clusters = 3
     kmeans = KMeans_scratch(x, c0, num_clusters)
     assignments, centroids = kmeans.fit()
+    
+    #Plot KMeans against true assignments
+    plotResults(assignments)
+    
     print("Cluster centers from scratch:")
     print(centroids[len(centroids)-1])
     

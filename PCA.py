@@ -74,6 +74,21 @@ class PCA_scratch:
         return np.sqrt(e_val), r
 
 ##############################################################################    
+def plotResults():
+    f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+    ax1.plot(X_transformed_scratch[:,0],X_transformed_scratch[:,1],'bo')
+    ax1.set_xlabel('component 1')
+    ax1.set_ylabel('component 2')
+    ax1.set_title('scratch')
+    
+    ax2.plot(X_transformed_pca[:,0],X_transformed_pca[:,1],'bo')
+    ax2.set_xlabel('component 1')
+    ax2.set_ylabel('component 2')
+    ax2.set_title('sklearn')
+    f.suptitle('Data projected onto first two PCs')
+    
+    plt.show()
+
 
 if __name__ == "__main__":
     
@@ -97,14 +112,5 @@ if __name__ == "__main__":
     delta = LA.norm(X_transformed_pca - X_transformed_scratch,2)
     print("norm of difference of PCA and scratch transforms:", delta)
     
-    plt.plot(X_transformed_scratch[:,0],X_transformed_scratch[:,1],'bo')
-    plt.xlabel('component 1')
-    plt.ylabel('component 2')
-    plt.title('Data projected onto first two PCs (scratch)')
-    plt.show()
-    
-    plt.plot(X_transformed_pca[:,0],X_transformed_pca[:,1],'bo')
-    plt.xlabel('component 1')
-    plt.ylabel('component 2')
-    plt.title('Data projected onto first two PCs (sklearn)')
-    plt.show()
+    #plot results
+    plotResults()
