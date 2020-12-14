@@ -6,7 +6,7 @@
  <li>KMeans clustering</li>
  <li>Principal Component Analysis (PCA): scratch method uses power iteration to compute singular values and eigenvectors</li>
  <li>Linear Regression: linear regression over multiple independent variables.  Parameter estimated determined via solving the normal equation, gradient descent, and stochastic (mini-batch) gradient descent</li>
- <li>Solution to system of linear equations $Ax=b$ using steepest descent and conjugate gradient methods</li>
+ <li>Solution to system of linear equations Ax=b using steepest descent and conjugate gradient methods</li>
  <li>Logistic Regression</li>
  </ol>
 
