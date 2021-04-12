@@ -9,5 +9,7 @@
  <li>Solution to system of linear equations Ax=b using steepest descent and conjugate gradient methods</li>
  <li>Logistic Regression</li>
  <li>Softmax Classification with L2 Regularization</li>
+ <li>Linear SVC</li>
+ <li>Nonlinear SVC with polynomial and rbf kernels(dual problem solved with CVX)</li>
  </ol>
 
