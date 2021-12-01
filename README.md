@@ -11,5 +11,6 @@
  <li>Softmax Classification with L2 Regularization</li>
  <li>Linear SVC</li>
  <li>Nonlinear SVC with polynomial and rbf kernels (dual problem solved with CVX)</li>
+ <li>Gaussian Process Regression</li>
  </ol>
 
