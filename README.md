@@ -11,6 +11,8 @@
  <li>Softmax Classification with L2 Regularization</li>
  <li>Linear SVC</li>
  <li>Nonlinear SVC with polynomial and rbf kernels (dual problem solved with CVX)</li>
+ <li>Gradient Boost Regression Tree</li>
  <li>Gaussian Process Regression</li>
+ <li>Bayesian Optimization</li>
  </ol>
 
